@@ -1,12 +1,6 @@
 import React from "react";
 import { Text, View } from "react-native";
-import {
-  Container,
-  BlueButton,
-  ButtonText,
-  Title,
-  Steps,
-} from "../../styles/global";
+import { Container, Btn, ButtonText, Title, Steps } from "../../styles/global";
 
 export default function NovaVenda({ navigation }) {
   return (
@@ -16,14 +10,14 @@ export default function NovaVenda({ navigation }) {
       </Steps>
       <Container>
         <Title>Você não possui estoque cadastrado. O que deseja fazer?</Title>
-        <BlueButton>
+        <Btn>
           <ButtonText>INSERIR A PARTIR DE UM CATÁLOGO</ButtonText>
-        </BlueButton>
-        <BlueButton>
+        </Btn>
+        <Btn>
           <ButtonText onPress={() => navigation.navigate("ProdutoManualmente")}>
             INSERIR PRODUTO MANUALMENTE
           </ButtonText>
-        </BlueButton>
+        </Btn>
       </Container>
     </View>
   );

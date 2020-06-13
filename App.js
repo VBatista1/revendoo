@@ -11,13 +11,17 @@ import vendas from "./src/pages/Vendas/index";
 import novavenda from "./src/pages/NovaVenda/index";
 import produtomanualmente from "./src/pages/ProdutoManualmente/index";
 import novavenda02 from "./src/pages/NovaVenda02/index";
+import novavenda05 from "./src/pages/NovaVenda05/index";
+import novavenda03 from "./src/pages/NovaVenda03/index";
+import novavenda03data from "./src/pages/NovaVenda03Data/index";
+import novavenda04 from "./src/pages/NovaVenda04/index";
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="NovaVenda02">
+      <Stack.Navigator initialRouteName="Login">
         <Stack.Screen
           name="Login"
           component={login}
@@ -96,6 +100,58 @@ export default function App() {
         <Stack.Screen
           name="NovaVenda02"
           component={novavenda02}
+          options={{
+            title: "NOVA VENDA",
+            headerStyle: {
+              backgroundColor:
+                "linear-gradient(180deg, rgba(156,40,177,1) 0%, rgba(103,57,182,1) 100%)",
+            },
+            headerTintColor: "#fff",
+            headerTitleAlign: "left",
+          }}
+        />
+        <Stack.Screen
+          name="NovaVenda05"
+          component={novavenda05}
+          options={{
+            title: "NOVA VENDA",
+            headerStyle: {
+              backgroundColor:
+                "linear-gradient(180deg, rgba(156,40,177,1) 0%, rgba(103,57,182,1) 100%)",
+            },
+            headerTintColor: "#fff",
+            headerTitleAlign: "left",
+          }}
+        />
+        <Stack.Screen
+          name="NovaVenda03"
+          component={novavenda03}
+          options={{
+            title: "NOVA VENDA",
+            headerStyle: {
+              backgroundColor:
+                "linear-gradient(180deg, rgba(156,40,177,1) 0%, rgba(103,57,182,1) 100%)",
+            },
+            headerTintColor: "#fff",
+            headerTitleAlign: "left",
+          }}
+        />
+        <Stack.Screen
+          name="NovaVenda03Data"
+          component={novavenda03data}
+          options={{
+            title: "NOVA VENDA",
+            headerStyle: {
+              backgroundColor:
+                "linear-gradient(180deg, rgba(156,40,177,1) 0%, rgba(103,57,182,1) 100%)",
+            },
+            headerTintColor: "#fff",
+            headerTitleAlign: "left",
+          }}
+        />
+        <Stack.Screen
+          name="NovaVenda04"
+          component={novavenda04}
           options={{
             title: "NOVA VENDA",
             headerStyle: {

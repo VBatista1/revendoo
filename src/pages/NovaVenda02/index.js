@@ -1,9 +1,9 @@
-import React from "react";
-import { Text } from "react-native";
+import React, { useState } from "react";
+import { Text, TouchableOpacity } from "react-native";
 import {
-  ProductImage,
   ProductPrice,
-  ProductQuantity,
+  ProductQtyBox,
+  AddQty,
   ProductTitle,
   ActionButton,
   ActionButtonText,
@@ -11,20 +11,28 @@ import {
   RemoveButtonText,
   Txt,
   ProductView,
-  Divider,
   ProductDetails,
   ProductColumn,
-  TxtRow,
   RemoveColumn,
 } from "./styles";
 import Icon from "react-native-vector-icons/MaterialIcons";
-import { Container, BlueButton, ButtonText, Steps } from "../../styles/global";
+import {
+  ProductImage,
+  Container,
+  Btn,
+  ButtonText,
+  Steps,
+  TxtRow,
+  Divider,
+} from "../../styles/global";
 
-export default function NovaVenda02() {
+export default function NovaVenda02({ navigation }) {
+  const unitPrice = 30;
+  const [quantity, setQuantity] = useState(1);
   return (
     <>
       <Steps>
-        <Text>Passo 1 de 5 - Adicionar produtos ao Carrinho</Text>
+        <Text>Passo 2 de 5 - Produtos no Carrinho</Text>
       </Steps>
       <Container>
         <ProductView>
@@ -34,8 +42,20 @@ export default function NovaVenda02() {
           <ProductColumn>
             <ProductTitle>Produto 1</ProductTitle>
             <ProductQtyBox>
-              <Icon name="add-circle" />
-              <Icon name="add-circle" />
+              <Text style={{ color: "#999", fontSize: 11 }}>Quantidade</Text>
+              <AddQty>
+                <TouchableOpacity
+                  onPress={() =>
+                    quantity > 1 ? setQuantity(quantity - 1) : null
+                  }
+                >
+                  <Icon name="remove-circle" size={20} color="#999" />
+                </TouchableOpacity>
+                <Text style={{ fontSize: 17 }}>{quantity}</Text>
+                <TouchableOpacity onPress={() => setQuantity(quantity + 1)}>
+                  <Icon name="add-circle" size={20} color="#999" />
+                </TouchableOpacity>
+              </AddQty>
             </ProductQtyBox>
           </ProductColumn>
           <RemoveColumn>
@@ -44,33 +64,45 @@ export default function NovaVenda02() {
                 <Icon name="close" size={15} /> Remover
               </RemoveButtonText>
             </RemoveButton>
-            <ProductPrice color="#9c28b1">R$ 30,00</ProductPrice>
+            <ProductPrice color="#9c28b1">
+              R$ {(quantity * unitPrice).toFixed(2)}
+            </ProductPrice>
           </RemoveColumn>
         </ProductView>
         <Divider />
         <ProductDetails>
           <ActionButton>
             <ActionButtonText>
-              <Icon name="add-circle" size={15} /> ADICIONAR PRODUTOS
+              <Icon name="add-circle" size={20} /> ADICIONAR PRODUTOS
             </ActionButtonText>
           </ActionButton>
           <TxtRow>
             <Txt>Quantidade</Txt>
-            <Txt color="#9c28b1">1</Txt>
+            <Txt bold={true} color="#9c28b1">
+              {quantity}
+            </Txt>
           </TxtRow>
           <TxtRow>
             <Txt>Total</Txt>
-            <Txt color="#9c28b1">R$ 30,00</Txt>
+            <Txt bold={true} color="#9c28b1">
+              R$ {(quantity * unitPrice).toFixed(2)}
+            </Txt>
           </TxtRow>
           <ActionButton>
             <ActionButtonText>
-              <Icon name="add-circle" size={15} /> APLICAR DESCONTO
+              <Icon name="add-circle" size={20} /> APLICAR DESCONTO
             </ActionButtonText>
           </ActionButton>
         </ProductDetails>
-        <BlueButton>
-          <ButtonText>CONTINUAR</ButtonText>
-        </BlueButton>
+        <Btn>
+          <ButtonText
+            onPress={() => {
+              navigation.navigate("NovaVenda03");
+            }}
+          >
+            CONTINUAR
+          </ButtonText>
+        </Btn>
       </Container>
     </>
   );

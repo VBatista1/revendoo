@@ -1,5 +1,10 @@
 import styled from "styled-components/native";
 
+export const ProductImage = styled.Image`
+  width: 90px;
+  height: 90px;
+`;
+
 export const ProductPrice = styled.Text`
   font-size: 15px;
   color: ${(props) => props.color};
@@ -51,7 +56,7 @@ export const RemoveButtonText = styled.Text`
 export const Txt = styled.Text`
   font-size: 22px;
   font-weight: ${(props) => (props.bold ? "400" : "normal")};
-  color: ${(props) => (props.color ? props.color : "#000")};
+  color: ${(props) => props.color};
 `;
 
 export const ProductView = styled.View`
@@ -60,6 +65,11 @@ export const ProductView = styled.View`
   text-align: center;
   justify-content: space-between;
   margin: 15px 0px;
+`;
+
+export const Divider = styled.View`
+  border-bottom-color: #d3d3d3;
+  border-bottom-width: 1px;
 `;
 
 export const ProductDetails = styled.View`
@@ -79,4 +89,19 @@ export const RemoveColumn = styled.View`
   flex-direction: column;
   align-items: flex-end;
   justify-content: center;
+`;
+
+export const TxtRow = styled.View`
+  margin: 5px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+`;
+export const LoginButton = styled.TouchableOpacity`
+  height: 40px;
+  margin: 20px 0;
+	padding: 12px;
+	border-radius: 5px;
+  background-color: #e0e0e0;
 `;

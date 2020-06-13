@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import { Text } from "react-native";
-import {
-  TxtInput,
-  Container,
-  BlueButton,
-  ButtonText,
-} from "../../styles/global";
+import { TxtInput, Container, Btn, ButtonText } from "../../styles/global";
 import { SwitchCadastro, ViewSwitch } from "./styles";
 
 export default function Cadastro({ navigation }) {
@@ -31,13 +26,13 @@ export default function Cadastro({ navigation }) {
         />
         <Text>Li e aceito os Termos de Uso</Text>
       </ViewSwitch>
-      <BlueButton
+      <Btn
         onPress={() => {
           navigation.navigate("Login");
         }}
       >
         <ButtonText>CRIE SUA CONTA</ButtonText>
-      </BlueButton>
+      </Btn>
     </Container>
   );
 }

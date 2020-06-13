@@ -18,19 +18,19 @@ export const Container = styled.ScrollView`
   background-color: #fff;
 `;
 
-export const BlueButton = styled.TouchableOpacity`
+export const Btn = styled.TouchableOpacity`
   height: 40px;
   margin: 20px 0;
   padding: 12px;
   border-radius: 5px;
-  background-color: #1564c0;
+  background-color: ${(props) => (props.color ? props.color : "#1564c0")};
 `;
 
 export const ButtonText = styled.Text`
   letter-spacing: 1px;
   font-weight: bold;
   font-size: 15px;
-  color: #fff;
+  color: ${(props) => (props.color ? props.color : "#fff")};
   text-align: center;
 `;
 
@@ -44,4 +44,22 @@ export const Steps = styled.View`
   background-color: #f5f5f5;
   width: 100%;
   padding: 20px;
+`;
+
+export const ProductImage = styled.Image`
+  width: 90px;
+  height: 90px;
+`;
+
+export const Divider = styled.View`
+  border-bottom-color: #d3d3d3;
+  border-bottom-width: 1px;
+`;
+
+export const TxtRow = styled.View`
+  margin: 5px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
 `;
